@@ -1,0 +1,92 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+	<div *ngIf="isSelected(); then thenBlock else elseBlock"></div>
+	<ng-template #thenBlock>
+		<a class="navbar-brand">
+			<button type="button" class="btn bg-tp" (click)="randomize()">
+				<img src="assets/148750.svg" width="30" height="30" class="d-inline-block align-top" alt=""> {{ title }}
+			</button>
+		</a>
+	</ng-template>
+	<ng-template #elseBlock>
+		<a class="navbar-brand">
+			<button type="button" class="btn bg-tp" (click)="randomize()">
+					<img src="assets/149674.svg" width="30" height="30" class="d-inline-block align-top" alt=""> {{ title }}
+			</button>
+		</a>
+	</ng-template>
+
+
+	<div class="collapse navbar-collapse" id="navbarToggler">
+		<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+			<li class="nav-item active">
+				<a class="nav-link">
+					<span class="sr-only">(current)</span>
+				</a>
+			</li>
+		</ul>
+		<div class="form-inline">
+			<div class="input-group">
+				<input type="text" class="form-control" placeholder="Player name" [(ngModel)]="pjField">
+				<div class="input-group-append">
+					<button type="button" class="btn btn-outline-dark dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true"
+					 aria-expanded="false">
+					</button>
+					<div class="dropdown-menu">
+						<a class="dropdown-item" (click)="addPlayer()">Create</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</nav>
+
+<nav class="navbar navbar-light bg-light">
+	<div class="btn-group">
+		<input class="form-control mr-sm-2" [(ngModel)]="searchText" placeholder="Search">
+		<button type="button" class="btn btn-success" (click)="selectAll()">
+			Select All
+		</button>
+		<button type="button" class="btn btn-danger" (click)="deselectAll()">
+			Deselect All
+		</button>
+	</div>
+</nav>
+<table class="table table-sm table-hover table-striped" *ngIf="backEndResponse">
+	<thead class="thead-dark">
+		<tr>
+			<th scope="col">Player name</th>
+			<th scope="col">Selected</th>
+			<th scope="col">Action</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr *ngFor="let p of players | filter : searchText">
+			<td>
+				<input class="inputPlayer" type="text" [(ngModel)]="p.name" [disabled]="p.enabled">
+			</td>
+			<td>
+				<input type="checkbox" [(ngModel)]="p.selected" />
+			</td>
+			<div class="btn-group" role="group" aria-label="Basic example">
+				<p class="btn-group" [hidden]="!p.enabled">
+					<button [disabled]="buttonDisabled()" type="button" class="btn btn-primary" (click)="editPlayer(p)">
+						Edit
+					</button>
+					<button type="button" class="btn btn-danger" (click)="removePlayer(p)">
+						Delete
+					</button>
+				</p>
+				<p class="btn-group" [hidden]="p.enabled">
+					<button type="button" class="btn btn-success" (click)="updatePlayer(p.name, p)">
+						Done
+					</button>
+					<button type="button" class="btn btn-danger" (click)="cancelEdit(p)">
+						Cancel
+					</button>
+				</p>
+			</div>
+		</tr>
+		<tr></tr>
+	</tbody>
+</table>
+<app-alerts></app-alerts>

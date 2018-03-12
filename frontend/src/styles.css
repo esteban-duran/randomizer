@@ -1,0 +1,46 @@
+/* You can add global styles to this file, and also import other style files */
+.alertsRow {
+  margin-top: 47px !important;
+  border-radius: 17px !important;
+}
+
+.iconpanel {
+  display: none;
+}
+
+.messagepanel {
+  margin-bottom: 10px !important;
+  padding-top: 13px !important;
+  padding-left: 15px !important;
+}
+
+.closeicon {
+  padding-top: 2px !important;
+}
+
+.ng-untouched.ng-pristine {
+  background: transparent;
+  border: none;
+}
+
+.ng-untouched.ng-pristine.ng-valid {
+  border: 1px solid #ced4da;
+}
+
+.inputPlayer:enabled {
+  border: 1px solid #3ccd3d !important;
+}
+
+.inputPlayer.ng-pristine.ng-touched {
+  background: transparent;
+  border: none;
+}
+
+.ng-dirty.ng-touched {
+  background: transparent;
+  border: none;
+}
+
+.table.table-sm.table-hover.table-striped td {
+  padding-top: 13px;
+}
