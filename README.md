@@ -2,10 +2,10 @@
 
 Webapp using `Spring MVC` and `Angular 5` for randomizing player names!
 
-[random]: screenshot/random.png "Randomize in action!"
-[edit]: screenshot/edit.png "Edit option"
-[home]: screenshot/home.png "Home view"
-[create]: screenshot/create.png "Create a player"
+[random]: screenshots/random.png "Randomize in action!"
+[edit]: screenshots/edit.png "Edit option"
+[home]: screenshots/home.png "Home view"
+[create]: screenshots/create.png "Create a player"
 [logo]: frontend/src/favicon.ico
 
 ![Randomize logo][logo]
